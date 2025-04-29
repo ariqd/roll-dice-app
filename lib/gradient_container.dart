@@ -5,7 +5,12 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer({
+    super.key,
+    required this.gradientColors,
+  });
+
+  final List<Color> gradientColors;
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +24,27 @@ class GradientContainer extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 26, 2, 80),
-              Color.fromARGB(255, 45, 7, 98),
-            ],
+            colors: gradientColors,
             begin: startAlignment,
             end: endAlignment,
           ),
         ),
-        child: const Center(
-          child: StyledText('Roll the Dice!'),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/dice-2.png',
+                width: 200,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const StyledText('Roll the Dice!'),
+              ),
+            ],
+          ),
         ),
       ),
     );

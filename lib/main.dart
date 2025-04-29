@@ -21,7 +21,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: newTextTheme,
       ),
-      home: const GradientContainer(),
+      home: const GradientContainer(
+        gradientColors: [
+          Color.fromARGB(255, 26, 2, 80),
+          Color.fromARGB(255, 45, 7, 98),
+        ],
+      ),
     );
   }
 }
